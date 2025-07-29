@@ -35,6 +35,7 @@
             button1 = new Button();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // textBox1
@@ -106,10 +107,18 @@
             radioButton2.Text = "Pelen etat";
             radioButton2.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(3, 184);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(112, 144);
+            panel1.TabIndex = 0;
+            // 
             // UserControl1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panel1);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(button1);
@@ -119,7 +128,8 @@
             Controls.Add(textBox1);
             Margin = new Padding(2);
             Name = "UserControl1";
-            Size = new Size(210, 310);
+            Size = new Size(210, 377);
+            
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,5 +143,6 @@
         private Button button1;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
+        private Panel panel1;
     }
 }

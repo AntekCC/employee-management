@@ -27,11 +27,11 @@ namespace management_system
             if (File.Exists(path)) { 
                 { 
                     string JsonFill = File.ReadAllText(path);
-                    var obj = JsonConvert.DeserializeObject<List<employeeBase>>(JsonFill,new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.Auto });
+                    var obj = JsonConvert.DeserializeObject<List<EmployeeBase>>(JsonFill,new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.Auto });
                     if (JsonFill.Length > 0) {
                         foreach (var i in obj)
                         {
-                            employeeBase.AllEmployees.Add(i);
+                            EmployeeBase.AllEmployees.Add(i);
                         }
                         
                         

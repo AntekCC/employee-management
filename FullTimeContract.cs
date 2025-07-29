@@ -15,10 +15,10 @@ namespace management_system
         Random rand = new Random();
 
       
-        public FullTimeContract()
+        public FullTimeContract(int overtime)
         {
-
-            overtime = rand.Next(0, 21);
+            this.overtime = overtime;
+           
             FulltimeMoney = baseSalary + overtime * (baseSalary / 60);
             Ctype = $"Typ kontraktu: Pelen etat";
 

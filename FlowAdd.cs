@@ -20,7 +20,7 @@ namespace management_system
             flowLayoutPanel.Controls.Clear();
             AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
 
-            foreach (var workerr in employeeBase.AllEmployees)
+            foreach (var workerr in EmployeeBase.AllEmployees)
             {
                 Panel panel = new Panel();
 
@@ -57,7 +57,7 @@ namespace management_system
                 SalrayButton.Size = new Size(90, 30);
                 SalrayButton.BackColor = Color.Snow;
                 SalrayButton.Location = new Point(10, 65);
-                SalrayButton.Click += (sender, e) => MessageBox.Show($"{workerr.contract.Salary()}zl");
+                SalrayButton.Click += (sender, e) => MessageBox.Show($"{workerr.GetSalary()}zl");
                 
                 
                 Button ChangeContract = new Button();
@@ -72,19 +72,8 @@ namespace management_system
 
                 ChangeContract.Click += (sender, e) =>
                 {
-                    if (workerr.contract is InternContract)
-                    {
-                        workerr.contract = new FullTimeContract();
-
-                    }
-                    else
-                    {
-                        workerr.contract = new InternContract();
-                    }
-                    workerr.contract.ContractType();
-                    workerr.contract.Salary();
+                    workerr.ChangeContract();
                     labelName.Text = $"{workerr.name.ToUpper()} {workerr.surname.ToUpper()}\n{workerr.contract.ContractType()}";
-
                 };
                 Button DeleteButton = new Button() { Text = "X" };
                 DeleteButton.Location = new Point(240,0);
@@ -101,7 +90,7 @@ namespace management_system
                     if (panel.Contains(btn))
                     {
                         flowLayoutPanel.Controls.Remove(panel);
-                        employeeBase.AllEmployees.Remove(workerr);
+                        EmployeeBase.AllEmployees.Remove(workerr);
                     }
                 };
 
@@ -118,9 +107,9 @@ namespace management_system
 
         private static void CurrentDomain_ProcessExit(object? sender, EventArgs e)
         {
-            MessageBox.Show($"Zapisuję {employeeBase.AllEmployees.Count} pracowników");
+          
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "EmployeData.txt");
-            string JsonFile = JsonConvert.SerializeObject(employeeBase.AllEmployees, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto});
+            string JsonFile = JsonConvert.SerializeObject(EmployeeBase.AllEmployees, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto});
             if (File.Exists(path))
             {
                 File.WriteAllText(path, JsonFile);
