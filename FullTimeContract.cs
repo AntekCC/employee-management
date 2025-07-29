@@ -24,12 +24,12 @@ namespace management_system
 
         }
 
-        public override string ContractType()
+        public  string ContractType()
         {
             return Ctype;
 
         }
-        public override int Salary()
+        public  int Salary()
         {
             return FulltimeMoney;
         }

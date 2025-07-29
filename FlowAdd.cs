@@ -18,23 +18,22 @@ namespace management_system
 
             FlowLayoutPanel flowLayoutPanel = flowLayoutPanelConstruct2;
             flowLayoutPanel.Controls.Clear();
-            MessageBox.Show("Zliczono: " + employeeBase.AllEmployees.Count);
             AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
 
             foreach (var workerr in employeeBase.AllEmployees)
             {
                 Panel panel = new Panel();
 
-                panel.Size = new Size(280, 110);
+                panel.Size = new Size(280, 120);
                 panel.Margin = new Padding(5);
                 panel.BackColor = Color.White;
-                panel.MouseEnter += Panel_MouseEnter;
+                panel.MouseEnter += Panel_MouseEnter; 
                 panel.MouseLeave += Panel_MouseLeave;
 
                 Label labelName = new Label();
                 labelName.Text = $"{workerr.name.ToUpper()} {workerr.surname.ToUpper()}\n{workerr.contract.ContractType()}";
 
-                labelName.Font = new Font("Arial", 5, FontStyle.Bold);
+                labelName.Font = new Font("Arial", 10, FontStyle.Bold);
                 labelName.ForeColor = Color.Black;
                 labelName.BackColor = Color.Transparent;
                 labelName.AutoSize = false;
@@ -96,9 +95,10 @@ namespace management_system
 
         private static void CurrentDomain_ProcessExit(object? sender, EventArgs e)
         {
+            MessageBox.Show($"Zapisuję {employeeBase.AllEmployees.Count} pracowników");
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "EmployeData.txt");
-            string JsonFile = JsonConvert.SerializeObject(employeeBase.AllEmployees);
-            if (!File.Exists(path))
+            string JsonFile = JsonConvert.SerializeObject(employeeBase.AllEmployees, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto});
+            if (File.Exists(path))
             {
                 File.WriteAllText(path, JsonFile);
             }

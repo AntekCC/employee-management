@@ -18,15 +18,13 @@ namespace management_system
             Ctype = $"Typ kontraktu: Staz";
             InternMoney = 2000;
         }
-        public override string ContractType()
+        public  string ContractType()
         {
-            MainCtype = Ctype;
-            return MainCtype;
+            return Ctype;
         }
-        public override int Salary()
+        public  int Salary()
         {
-            MainMoney = InternMoney;
-            return MainMoney;
+            return InternMoney;
         }
     }
 }

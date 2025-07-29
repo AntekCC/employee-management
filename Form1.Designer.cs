@@ -95,7 +95,7 @@
             flowLayoutPanel1.Location = new Point(366, 2);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(240, 356);
+            flowLayoutPanel1.Size = new Size(301, 356);
             flowLayoutPanel1.TabIndex = 2;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -122,7 +122,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 360);
+            ClientSize = new Size(669, 367);
             Controls.Add(panel6);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel3);

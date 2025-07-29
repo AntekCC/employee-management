@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace management_system
 {
-    public abstract class Contract
+    public interface Contract
     {
-        public int MainMoney { get; set; }
-        public string MainCtype { get; set; }
-        public abstract string ContractType();
-        public abstract int Salary();
+        public  string ContractType();
+        public int Salary();
     }
 }
 
