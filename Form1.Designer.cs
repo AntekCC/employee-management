@@ -131,6 +131,7 @@
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel6.ResumeLayout(false);

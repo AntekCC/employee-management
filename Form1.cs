@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace management_system
 {
@@ -18,6 +18,18 @@ namespace management_system
             userControl1 = new UserControl1(Positon, flowLayoutPanel1);
             userControl1.Dock = DockStyle.Fill;
             panel2.Controls.Add(userControl1);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "EmployeData.txt");
+            if (File.Exists(path)) { 
+                { 
+                    string JsonFill = File.ReadAllText(path);
+                    var obj = JsonConvert.DeserializeObject<List<employeeBase>>(JsonFill); 
+                  
+                }
+            }
         }
     }
 
