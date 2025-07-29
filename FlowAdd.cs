@@ -26,31 +26,50 @@ namespace management_system
 
                 panel.Size = new Size(280, 120);
                 panel.Margin = new Padding(5);
-                panel.BackColor = Color.White;
+                panel.BackColor = Color.LightGray;
+              
+                panel.BorderStyle = BorderStyle.FixedSingle;
+
                 panel.MouseEnter += Panel_MouseEnter; 
                 panel.MouseLeave += Panel_MouseLeave;
 
                 Label labelName = new Label();
                 labelName.Text = $"{workerr.name.ToUpper()} {workerr.surname.ToUpper()}\n{workerr.contract.ContractType()}";
 
-                labelName.Font = new Font("Arial", 10, FontStyle.Bold);
+                labelName.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 labelName.ForeColor = Color.Black;
                 labelName.BackColor = Color.Transparent;
                 labelName.AutoSize = false;
                 labelName.TextAlign = ContentAlignment.TopLeft;
                 labelName.Size = new Size(280, 50);
                 labelName.Location = new Point(10, 10);
+                labelName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
                 labelName.BringToFront();
+
 
                 Button SalrayButton = new Button();
                 SalrayButton.Text = "Wypłata";
+                SalrayButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+                SalrayButton.ForeColor = Color.Black;
+                SalrayButton.FlatStyle = FlatStyle.Flat;
+                SalrayButton.FlatAppearance.BorderSize = 0;
                 SalrayButton.Size = new Size(90, 30);
+                SalrayButton.BackColor = Color.Snow;
                 SalrayButton.Location = new Point(10, 65);
                 SalrayButton.Click += (sender, e) => MessageBox.Show($"{workerr.contract.Salary()}zl");
+                
+                
                 Button ChangeContract = new Button();
                 ChangeContract.Text = "Zmien kontrakt";
                 ChangeContract.Size = new Size(90, 30);
+                SalrayButton.ForeColor = Color.Black;
+                SalrayButton.FlatStyle = FlatStyle.Flat;
+                SalrayButton.FlatAppearance.BorderSize = 0;
+                ChangeContract.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
                 ChangeContract.Location = new Point(100, 65);
+                ChangeContract.BackColor = Color.Snow;
+
                 ChangeContract.Click += (sender, e) =>
                 {
                     if (workerr.contract is InternContract)
@@ -69,8 +88,12 @@ namespace management_system
                 };
                 Button DeleteButton = new Button() { Text = "X" };
                 DeleteButton.Location = new Point(240,0);
+                DeleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
                 DeleteButton.Size = new Size(35, 30);
                 DeleteButton.FlatStyle = FlatStyle.Flat;
+                DeleteButton.BackColor = Color.LightCoral;
+                DeleteButton.ForeColor = Color.White;
                 DeleteButton.FlatAppearance.BorderSize = 0;
                 DeleteButton.Click += (sender, e) =>
                 {
@@ -108,13 +131,13 @@ namespace management_system
         private static void Panel_MouseLeave(object? sender, EventArgs e)
         {
             Control control = sender as Control;
-            control.BackColor = Color.White;
+            control.BackColor = Color.LightGray;
         }
 
         private static void Panel_MouseEnter(object? sender, EventArgs e)
         {
             Control control = sender as Control;
-            control.BackColor = Color.LightGray;
+            control.BackColor = Color.Gray;
         }
     }
 }
