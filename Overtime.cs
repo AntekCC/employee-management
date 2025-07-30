@@ -17,14 +17,16 @@ namespace management_system
         public Overtime()
         {
             InitializeComponent();
-          
-            
+
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             int.TryParse(textBox1.Text, out int result);
             _overtime = result;
+            MessageBox.Show($"Ilosc nadgodzin: {_overtime}");
+            textBox1.Text = "";
         }
     }
 }

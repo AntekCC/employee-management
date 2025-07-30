@@ -58,9 +58,9 @@ namespace management_system
             }
             else if (radioButton2.Checked)
             {
-                int overtimeValue = overtime._overtime;  
+                int overtimeValue = overtime._overtime;
                 worker.contract = new FullTimeContract(overtimeValue);
-              
+
             }
             else
             {

@@ -12,7 +12,7 @@ namespace management_system
 {
     public static class FlowAdd
     {
-         
+
         public static void PanelAdd(FlowLayoutPanel flowLayoutPanelConstruct2)
         {
 
@@ -27,10 +27,10 @@ namespace management_system
                 panel.Size = new Size(280, 120);
                 panel.Margin = new Padding(5);
                 panel.BackColor = Color.LightGray;
-              
+
                 panel.BorderStyle = BorderStyle.FixedSingle;
 
-                panel.MouseEnter += Panel_MouseEnter; 
+                panel.MouseEnter += Panel_MouseEnter;
                 panel.MouseLeave += Panel_MouseLeave;
 
                 Label labelName = new Label();
@@ -58,8 +58,8 @@ namespace management_system
                 SalrayButton.BackColor = Color.Snow;
                 SalrayButton.Location = new Point(10, 65);
                 SalrayButton.Click += (sender, e) => MessageBox.Show($"{workerr.GetSalary()}zl");
-                
-                
+
+
                 Button ChangeContract = new Button();
                 ChangeContract.Text = "Zmien kontrakt";
                 ChangeContract.Size = new Size(90, 30);
@@ -72,11 +72,14 @@ namespace management_system
 
                 ChangeContract.Click += (sender, e) =>
                 {
-                    workerr.ChangeContract();
-                    labelName.Text = $"{workerr.name.ToUpper()} {workerr.surname.ToUpper()}\n{workerr.contract.ContractType()}";
+                    Form2 form2 = new Form2(workerr);
+                    if (form2.ShowDialog() == DialogResult.OK)
+                    {
+                        labelName.Text = $"{workerr.name.ToUpper()} {workerr.surname.ToUpper()}\n{workerr.contract.ContractType()}";
+                    }
                 };
                 Button DeleteButton = new Button() { Text = "X" };
-                DeleteButton.Location = new Point(240,0);
+                DeleteButton.Location = new Point(240, 0);
                 DeleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
                 DeleteButton.Size = new Size(35, 30);
@@ -86,7 +89,7 @@ namespace management_system
                 DeleteButton.FlatAppearance.BorderSize = 0;
                 DeleteButton.Click += (sender, e) =>
                 {
-                    var btn =  sender as Button;
+                    var btn = sender as Button;
                     if (panel.Contains(btn))
                     {
                         flowLayoutPanel.Controls.Remove(panel);
@@ -101,21 +104,21 @@ namespace management_system
                 panel.Controls.Add(labelName);
                 flowLayoutPanel.Controls.Add(panel);
             }
-            
+
 
         }
 
         private static void CurrentDomain_ProcessExit(object? sender, EventArgs e)
         {
-          
+
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "EmployeData.txt");
-            string JsonFile = JsonConvert.SerializeObject(EmployeeBase.AllEmployees, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto});
+            string JsonFile = JsonConvert.SerializeObject(EmployeeBase.AllEmployees, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
             if (File.Exists(path))
             {
                 File.WriteAllText(path, JsonFile);
             }
         }
-        
+
 
         private static void Panel_MouseLeave(object? sender, EventArgs e)
         {

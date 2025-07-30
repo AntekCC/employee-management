@@ -18,11 +18,11 @@ namespace management_system
             Ctype = $"Typ kontraktu: Staz";
             InternMoney = 2000;
         }
-        public  string ContractType()
+        public string ContractType()
         {
             return Ctype;
         }
-        public  int Salary()
+        public int Salary()
         {
             return InternMoney;
         }

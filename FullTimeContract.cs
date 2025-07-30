@@ -14,22 +14,22 @@ namespace management_system
         public int overtime { get; set; }
         Random rand = new Random();
 
-      
+
         public FullTimeContract(int overtime)
         {
             this.overtime = overtime;
-           
+
             FulltimeMoney = baseSalary + overtime * (baseSalary / 60);
             Ctype = $"Typ kontraktu: Pelen etat";
 
         }
 
-        public  string ContractType()
+        public string ContractType()
         {
             return Ctype;
 
         }
-        public  int Salary()
+        public int Salary()
         {
             return FulltimeMoney;
         }

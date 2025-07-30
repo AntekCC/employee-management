@@ -26,19 +26,10 @@ namespace management_system
         }
 
 
-        public void ChangeContract()
-            
+        public void ChangeContract(Contract newcontract)
+
         {
-            if (contract is InternContract)
-            {
-                contract = new FullTimeContract(overtime);
-            }
-            else
-            {
-                contract = new InternContract();
-            }
-            contract.ContractType();
-            contract.Salary();
+            contract = newcontract;
         }
         public int GetSalary()
         {

@@ -76,6 +76,6 @@
 
         private Label label1;
         private TextBox textBox1;
-        private Button button1;
+        public Button button1;
     }
 }
