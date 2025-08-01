@@ -15,9 +15,6 @@ namespace management_system
 {
     public  class JsonApi
     {
-
-
-
         string spreadsheetId = "1CFqJudqVVOeSI2cNZI6FzOPUpNEpXywUzto7m60B_EI";
         string range = "json!A:C";
         string ApiKey = "AIzaSyBJZPHAsPhpFNz4f7kicQTlPtw_MbUQPM8";
@@ -46,10 +43,7 @@ namespace management_system
 
                 }
                 var result = await response.Content.ReadAsStringAsync();
-
                 MessageBox.Show($"Status: {response.StatusCode}\n{result}");
-
-
             }
         }
     }
