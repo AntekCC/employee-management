@@ -10,7 +10,7 @@ namespace management_system
 {
     public class EmployeeBase
     {
-        public string name { get; set; }
+        public   string name { get; set; }
         public string surname { get; set; }
         public int overtime { get; set; }
         public Contract contract { get; set; }

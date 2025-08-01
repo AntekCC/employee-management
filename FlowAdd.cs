@@ -117,6 +117,9 @@ namespace management_system
             {
                 File.WriteAllText(path, JsonFile);
             }
+            //
+            JsonApi jsonApi = new JsonApi(JsonFile);
+            jsonApi.PostApi();
         }
 
 
